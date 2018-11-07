@@ -20,8 +20,27 @@ export default class App extends React.Component{
                 {username:'jack',content:'too easy'}
             ]
     }
+    //添加评论
+    addComment = (comment) => {
+        //险得到状态
+        const {comments} = this.state
+        //修改状态内容
+        comments.unshift(comment)
+        //更新状态
+        this.setState({comments})
+    }
+    //删除评论
+    deleteComment = (index) => {
+        //险得到状态
+        const {comments} = this.state
+        //修改状态内容
+        comments.splice(index,1)
+        //更新状态
+        this.setState({comments})
+    }
 
     render(){
+        //得到这个状态值，通过props传递给item
         const {comments} = this.state
         return (
             <div>
@@ -35,8 +54,8 @@ export default class App extends React.Component{
                     </div>
                 </header>
                 <div className="container">
-                    <CommentAdd/>
-                    <CommentList comments={comments}/>
+                    <CommentAdd addComment={this.addComment}/>
+                    <CommentList comments={comments} deleteComment={this.deleteComment}/>
                 </div>
             </div>
         )
