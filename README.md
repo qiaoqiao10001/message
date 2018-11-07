@@ -1,3 +1,4 @@
-## npm install
-## yarn start
-*run at port 3000
+## to run this app
+* npm start
+* yarn start or npm start
+-run at port 3000
